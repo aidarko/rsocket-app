@@ -1,0 +1,2 @@
+# rsocket-app
+evaluate rsocket
