@@ -10,5 +10,7 @@ class GreetingResponse private constructor(val greeting: String) {
             val text = "Hello $name @ ${Instant.now()}"
             return GreetingResponse(text)
         }
+
+        fun error() = GreetingResponse("Error")
     }
 }

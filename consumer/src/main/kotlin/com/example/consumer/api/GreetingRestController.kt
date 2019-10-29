@@ -6,6 +6,7 @@ import org.springframework.messaging.rsocket.RSocketRequester
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
 @RestController
 class GreetingRestController(val requester: RSocketRequester) {
@@ -22,4 +23,11 @@ class GreetingRestController(val requester: RSocketRequester) {
                     .route("greet-stream")
                     .data(GreetingRequest(name))
                     .retrieveFlux(GreetingResponse::class.java)
+
+    @GetMapping("/greet/error/")
+    fun greetError(): Publisher<GreetingResponse> =
+            this.requester
+                    .route("greet-error")
+                    .data(Mono.empty<GreetingRequest>())
+                    .retrieveMono(GreetingResponse::class.java)
 }

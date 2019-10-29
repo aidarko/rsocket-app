@@ -1,8 +1,10 @@
 package com.example.producer
 
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.stereotype.Controller
 import reactor.core.publisher.Flux
+import java.lang.IllegalArgumentException
 import java.time.Duration
 import java.util.stream.Stream
 
@@ -17,4 +19,14 @@ class GreetingRSocketController {
                 .fromStream(Stream.generate { GreetingResponse.greet(request.name) })
                 .delayElements(Duration.ofSeconds(1))
     }
+
+    @MessageMapping("greet-error")
+    fun greetError(request: GreetingRequest) =
+    Flux.error<GreetingResponse>(IllegalArgumentException())
+
+    @MessageExceptionHandler
+    fun handleException(e: Exception): Flux<GreetingResponse> {
+        return Flux.just(GreetingResponse.error())
+    }
+
 }
