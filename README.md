@@ -8,6 +8,9 @@ It contains: single value (Mono) request, stream (Flux) and single error handlin
 
 Projects are run separatly: first producer, then consumer.
 
-Endpoints for HTTP calls: http://localhost:8080//greet/{name}, http://localhost:8080//greet/sse/{name}, http://localhost:8080//greet/error/
+Endpoints for HTTP calls: 
+* http://localhost:8080/greet/{name}, 
+* http://localhost:8080/greet/sse/{name}, 
+* http://localhost:8080/greet/error/
 
 It lacks: connection failure tolerance
