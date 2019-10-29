@@ -1,6 +1,6 @@
-# rsocket-app
+# spring-rsocket-app
 
-Evaluate RSocket Messaging in Spring Boot 2.2 with Kotlin
+Evaluate RSocket + Spring Boot 2.2 + Kotlin + Gradle
 
 This sampple follows https://www.youtube.com/watch?v=BxHqeq58xrE
 
