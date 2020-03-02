@@ -9,4 +9,3 @@ class ProducerApplication
 fun main(args: Array<String>) {
     runApplication<ProducerApplication>(*args)
 }
-

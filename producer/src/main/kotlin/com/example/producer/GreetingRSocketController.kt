@@ -28,5 +28,4 @@ class GreetingRSocketController {
     fun handleException(e: Exception): Flux<GreetingResponse> {
         return Flux.just(GreetingResponse.error())
     }
-
 }
