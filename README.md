@@ -13,4 +13,8 @@ Endpoints for HTTP calls:
 * http://localhost:8080/greet/sse/{name}, 
 * http://localhost:8080/greet/error/
 
-It lacks: connection failure tolerance
+## Features implemented:
+
+* Request/response communication
+* Stream (bi-directional) communication
+* Connection failure tolerance
